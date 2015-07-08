@@ -11,6 +11,9 @@
     <button class="muster-btn muster-submit">
         <span class="btn-content">Update</span>
     </button>
+    <button class="muster-btn btn-8 btn-8g">
+        <span class="content-span">Button</span>
+    </button>
 </body>
 
 <script src="classie.js"></script>
@@ -20,15 +23,33 @@
     function activate() {
         var self = this,
             activeClass = 'active-btn',
+            resultClass = 'result-btn',
+            submitClass = 'muster-submit',
+            successClass = 'success-btn',
+            noTransitionClass = 'no-transition',
+            placeholderClass = 'placeholder-btn',
             content_span = self.children[0],
             content = content_span.innerHTML;
         if( !classie.has( this, activeClass ) ) {
-            content_span.innerHTML = " ";
-            classie.add( this, activeClass );
+            content_span.innerHTML = "";
+            classie.add( self, activeClass );
             setTimeout( function() {
+                content_span.innerHTML = "Saving";
+                classie.add( self, noTransitionClass );
                 classie.remove( self, activeClass );
-                content_span.innerHTML = content;
-            }, 2000);
+                classie.remove( self, submitClass );
+                classie.add( self, placeholderClass );
+                setTimeout( function() {
+                    classie.add( self, successClass );
+                    classie.add( self, resultClass );
+                    setTimeout( function() {
+                        content_span.innerHTML = content;
+                        self.className = '';
+                        classie.add( self, 'muster-btn');
+                        classie.add( self, submitClass );
+                    }, 2000);
+                }, 1000);
+            }, 1000);
         }
     }
 </script>
