@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Creative Button Styles </title>
+    <link rel="stylesheet" type="text/css" href="muster.css">
+    </head>
+<body>
+    <button class="muster-btn muster-submit">
+        <span class="btn-content">Update</span>
+    </button>
+</body>
+
+<script src="classie.js"></script>
+<script type="text/javascript">
+    var buttons = Array.prototype.slice.call( document.querySelectorAll( 'button' ) );
+    buttons.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    function activate() {
+        var self = this,
+            activeClass = 'active-btn',
+            content_span = self.children[0],
+            content = content_span.innerHTML;
+        if( !classie.has( this, activeClass ) ) {
+            content_span.innerHTML = " ";
+            classie.add( this, activeClass );
+            setTimeout( function() {
+                classie.remove( self, activeClass );
+                content_span.innerHTML = content;
+            }, 2000);
+        }
+    }
+</script>
+</html>
