@@ -5,52 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Creative Button Styles </title>
-    <link rel="stylesheet" type="text/css" href="muster.css">
+    <link rel="stylesheet" type="text/css" href="buttons.css">
     </head>
 <body>
-    <button class="muster-btn muster-submit">
+    <button class="muster-btn submit-btn">
         <span class="btn-content">Update</span>
     </button>
     <button class="muster-btn btn-8 btn-8g">
         <span class="content-span">Button</span>
     </button>
-</body>
 
-<script src="classie.js"></script>
-<script type="text/javascript">
-    var buttons = Array.prototype.slice.call( document.querySelectorAll( 'button' ) );
-    buttons.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
-    function activate() {
-        var self = this,
-            activeClass = 'active-btn',
-            resultClass = 'result-btn',
-            submitClass = 'submit-btn',
-            successClass = 'success-btn',
-            noTransitionClass = 'no-transition',
-            placeholderClass = 'placeholder-btn',
-            content_span = self.children[0],
-            content = content_span.innerHTML;
-        if( !classie.has( this, activeClass ) ) {
-            content_span.innerHTML = "";
-            classie.add( self, activeClass );
-            setTimeout( function() {
-                content_span.innerHTML = "Saving";
-                classie.add( self, noTransitionClass );
-                classie.remove( self, activeClass );
-                classie.remove( self, submitClass );
-                classie.add( self, placeholderClass );
-                setTimeout( function() {
-                    classie.add( self, successClass );
-                    classie.add( self, resultClass );
-                    setTimeout( function() {
-                        content_span.innerHTML = content;
-                        self.className = '';
-                        classie.add( self, 'muster-btn');
-                        classie.add( self, submitClass );
-                    }, 2000);
-                }, 1000);
-            }, 1000);
-        }
-    }
-</script>
+    <script type="text/javascript" src="classie.js"></script>
+    <script type="text/javascript" src="buttons.js"></script>
+    <script type="text/javascript">
+        var buttons = Array.prototype.slice.call( document.querySelectorAll( 'button' ) );
+        buttons.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    </script>
+</body>
 </html>
