@@ -1,10 +1,3 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-    background-color: #F1F1F1;
-}
-
 .muster-btn {
     background: none;
     border: none;
@@ -38,14 +31,14 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
-.muster-submit {
+.submit-btn {
     color: #fff;
     background-color: #1B86BC;
     box-shadow: 0 5px #146289;
     overflow: hidden;
 }
 
-.muster-submit:before {
+.submit-btn:before {
     position: relative;
     color: #fff;
     padding: 0;
@@ -56,7 +49,7 @@ html, body {
     content: "Saving";
 }
 
-.muster-submit:after {
+.submit-btn:after {
     background-color: #146289;
     position: absolute;
     top: 0;
@@ -66,11 +59,11 @@ html, body {
     width: 0;
 }
 
-.muster-submit.active-btn:before {
+.submit-btn.active-btn:before {
     display: inline;
 }
 
-.muster-submit.active-btn:after {
+.submit-btn.active-btn:after {
     display: inline;
     -webkit-animation: fillToRight 0.7s forwards;
     -moz-animation: fillToRight 0.7s forwards;
